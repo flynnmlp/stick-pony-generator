@@ -22,6 +22,45 @@ class StickPonyGenerator {
 		
 		$('[name="race"]').change(() => this.onRaceChange());
 		this.onRaceChange();
+		
+		$('#download-svg').click(() => this.downloadSVG());
+		$('#download-png').click(() => this.downloadPNG());
+	}
+	
+	downloadSVG() {
+		var url = this.makeSVG();
+		this.download("pony.svg", url);
+		window.URL.revokeObjectURL(url);
+	}
+	downloadPNG() {
+		var url = this.makeSVG();
+		
+		var canvas = document.createElement('canvas');
+		var size = parseInt($("#download-size").val());
+		canvas.height = canvas.width = size;
+		var ctx = canvas.getContext("2d");
+		var img = new Image;
+		img.onload = () => {
+			window.URL.revokeObjectURL(url);
+			ctx.drawImage(img, 0, 0, size, size);
+			this.download("pony.png", canvas.toDataURL("image/png"));
+		};
+		img.src = url;
+	}
+	
+	download(filename, url) {
+		var a = document.body.appendChild(document.createElement("a"));
+		a.style = "display: none";
+		a.href = url;
+		a.download = filename;
+		a.click();
+		a.parentNode.removeChild(a);
+	}
+	
+	makeSVG() {
+		var xml = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n' + this.svg.outerHTML;
+		var blob = new Blob([xml], {type: "image/svg+xml"});
+		return window.URL.createObjectURL(blob);
 	}
 	
 	setUpColor(selector) {

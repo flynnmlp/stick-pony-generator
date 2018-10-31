@@ -53,6 +53,22 @@ input[type="radio"], input[type="checkbox"] {
 	vertical-align: text-top;
 }
 
+#download li {
+	margin: 0.2em;
+	align-items: baseline;
+	position: relative;
+}
+#download button, #download input {
+	height: 2.5em;
+	box-sizing: border-box;
+}
+#download button {
+	flex: 1;
+}
+#download input {
+	margin: 0 0.5em;
+}
+
 #race ul {
 	display: flex;
 	flex-direction: row;
