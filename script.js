@@ -79,11 +79,15 @@ class StickPonyGenerator {
 			? this.colors["mane-gradient"]
 			: [{position: 0, color: this.colors["mane-color"],}];
 		
-		var gradientTail = !$("#separate-tail-color").prop("checked")
+		var separate = $("#separate-tail-color").prop("checked");
+		
+		var gradientTail = !separate
 			? gradientMane
 			: ($("input[name='tail-color']:checked").val() == "gradient")
 			? this.colors["tail-gradient"]
 			: [{position: 0, color: this.colors["tail-color"],}];
+		
+		$("input[name='tail-color']").prop("disabled", !separate);
 		
 		this.setGradient("gradient-mane", gradientMane);
 		this.setGradient("gradient-tail", gradientTail);
@@ -105,8 +109,12 @@ class StickPonyGenerator {
 		let maneStyle = $("input[name='mane-style']:checked").val()
 		let tailStyle = $("input[name='tail-style']:checked").val()
 		
-		if(!$("#separate-tail-style").prop("checked"))
+		if(!$("#separate-tail-style").prop("checked")) {
 			tailStyle = maneStyle;
+			$("input[name='tail-style']").prop("disabled", true);
+		} else {
+			$("input[name='tail-style']").prop("disabled", false);
+		}
 		
 		for(let element of this.svg.getElementsByClassName("mane")) {
 			element.style.display = element.classList.contains(maneStyle) ? "" : "none";
