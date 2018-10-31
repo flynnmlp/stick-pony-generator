@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<meta charset="UTF-8"> 
+	<title>Pony Stick Generator</title>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" media="screen" type="text/css" href="colorpicker/css/colorpicker.css" />
+	<link rel="stylesheet" media="screen" type="text/css" href="jquery-gradient-picker/plugin/jquery.gradientPicker.css" />
+	<link rel="stylesheet" media="screen" type="text/css" href="style.css" />
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="colorpicker/js/colorpicker.js"></script>
+	<script type="text/javascript" src="jquery-gradient-picker/plugin/jquery.gradientPicker.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div id="generator">
+		<fieldset>
+			<legend>Colors:</legend>
+			<ul>
+				<li>body: <div id="body-color" style="background-color: #A3DEF8"></div></li>
+				<li>mane:</li>
+				<li>
+					<ul>
+						<li><label><input type="radio" name="mane-color" value="gradient" checked> gradient:</label> <div id="mane-gradient"></div></li>
+						<li><label><input type="radio" name="mane-color" value="flat"> color:</label> <div id="mane-color" style="background-color: #007F00"></div></li>
+					</ul>
+				</li>
+				<li><label><input type="checkbox" id="separate-tail-color"> separate tail color:</label></li>
+				<li>
+					<ul>
+						<li><label><input type="radio" name="tail-color" value="gradient" checked> gradient:</label> <div id="tail-gradient"></div></li>
+						<li><label><input type="radio" name="tail-color" value="flat"> color:</label> <div id="tail-color" style="background-color: #67ca50"></div></li>
+					</ul>
+				</li>
+			</ul>
+		</fieldset>
+		
+		<div id="hair">
+			<fieldset>
+				<legend>Mane Style:</legend>
+				<ul>
+					<li><label><input type="radio" name="mane-style" value="none"> none</label></li>
+					<li><label><input type="radio" name="mane-style" value="nerdy" checked> nerdy</label></li>
+					<li><label><input type="radio" name="mane-style" value="mighty"> mighty</label></li>
+					<li><label><input type="radio" name="mane-style" value="soft"> soft</label></li>
+					<li><label><input type="radio" name="mane-style" value="fast"> fast</label></li>
+					<li><label><input type="radio" name="mane-style" value="weird"> weird</label></li>
+					<li><label><input type="radio" name="mane-style" value="hard"> hard</label></li>
+					<li><label><input type="radio" name="mane-style" value="comfy"> comfy</label></li>
+					<li><label><input type="radio" name="mane-style" value="precious"> precious</label></li>
+					<li><label><input type="radio" name="mane-style" value="simple"> simple</label></li>
+				</ul>
+			</fieldset>
+			<fieldset>
+				<legend><label><input type="checkbox" id="separate-tail-style"> Tail Style:</label></legend>
+				<ul>
+					<li><label><input type="radio" name="tail-style" value="none"> none</label></li>
+					<li><label><input type="radio" name="tail-style" value="nerdy" checked> nerdy</label></li>
+					<li><label><input type="radio" name="tail-style" value="mighty"> mighty</label></li>
+					<li><label><input type="radio" name="tail-style" value="soft"> soft</label></li>
+					<li><label><input type="radio" name="tail-style" value="fast"> fast</label></li>
+					<li><label><input type="radio" name="tail-style" value="weird"> weird</label></li>
+					<li><label><input type="radio" name="tail-style" value="hard"> hard</label></li>
+					<li><label><input type="radio" name="tail-style" value="comfy"> comfy</label></li>
+					<li><label><input type="radio" name="tail-style" value="precious"> precious</label></li>
+					<li><label><input type="radio" name="tail-style" value="simple"> simple</label></li>
+				</ul>
+			</fieldset>
+		</div>
+	</div>
+	<div id="preview"></div>
+</body>
+</html>
