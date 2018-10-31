@@ -19,6 +19,9 @@ class StickPonyGenerator {
 		
 		$('#hair input').change(() => this.onStyleChange());
 		this.onStyleChange();
+		
+		$('[name="race"]').change(() => this.onRaceChange());
+		this.onRaceChange();
 	}
 	
 	setUpColor(selector) {
@@ -111,6 +114,13 @@ class StickPonyGenerator {
 		for(let element of this.svg.getElementsByClassName("tail")) {
 			element.style.display = element.classList.contains(tailStyle) ? "" : "none";
 		}
+	}
+	
+	onRaceChange() {
+		let race = $("input[name='race']:checked").val()
+		
+		document.getElementById("horn").style.display = race == "unicorn" || race == "alicorn" ? "" : "none";
+		document.getElementById("wing").style.display = race == "pegasus" || race == "alicorn" ? "" : "none";
 	}
 }
 
